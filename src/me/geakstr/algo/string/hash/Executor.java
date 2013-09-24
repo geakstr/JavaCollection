@@ -2,19 +2,20 @@ package me.geakstr.algo.string.hash;
 
 public class Executor {
 	public static void main(String[] args) {
-		String s1 = "sstringg";
-		String s2 = "string";
-		String s3 = "string";
-		String s4 = "stringgggggg";
+		String t = "This is the big big text big ololo";
 
-		Hash h1 = new Hash(s1);
-		Hash h2 = new Hash(s2);
-		Hash h3 = new Hash(s3);
-		Hash h4 = new Hash(s4);
+		String p = "big";
 
-		System.out.println(h1.hash(1, 6));
-		System.out.println(h2.hash());
-		System.out.println(h3.hash());
-		System.out.println(h4.hash(0, 5));
+		Hash h1 = new Hash(t);
+		Hash h2 = new Hash(p);
+
+		int tlen = t.length();
+		int plen = p.length();
+
+		for (int l = 0, r = plen - 1; r < tlen; l++, r++) {
+			if (h1.hash(l, r) == h2.hash()) {
+				System.out.println(l);
+			}
+		}
 	}
 }
